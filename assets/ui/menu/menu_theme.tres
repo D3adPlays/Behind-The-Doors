@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cjor63v5c1631"]
+
+[ext_resource type="FontFile" uid="uid://xfq7h50t0hea" path="res://assets/ui/menu/assets/nokiafc22.ttf" id="1_6lvq2"]
+[ext_resource type="StyleBox" uid="uid://d1to4mr04aq0w" path="res://assets/ui/menu/themes/button_normal.tres" id="2_lalg2"]
+[ext_resource type="StyleBox" uid="uid://dpfe1s2i31wex" path="res://assets/ui/menu/themes/button_hover.tres" id="2_lxtqm"]
+[ext_resource type="StyleBox" uid="uid://crebohvkogb1g" path="res://assets/ui/menu/themes/button_pressed.tres" id="4_mp3lb"]
+
+[resource]
+Button/font_sizes/font_size = 70
+Button/fonts/font = ExtResource("1_6lvq2")
+Button/styles/hover = ExtResource("2_lxtqm")
+Button/styles/normal = ExtResource("2_lalg2")
+Button/styles/pressed = ExtResource("4_mp3lb")

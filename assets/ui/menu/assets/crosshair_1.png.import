@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cab2f17wmgew8"
-path="res://.godot/imported/menu_button.png-be788579b0d0eff19aaf6b3d6e2dc750.ctex"
+uid="uid://bn3mcscp6oqxv"
+path="res://.godot/imported/crosshair_1.png-8a94cf9e936fd32623ad2fa0ebd585ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui (new)/menu_button.png"
-dest_files=["res://.godot/imported/menu_button.png-be788579b0d0eff19aaf6b3d6e2dc750.ctex"]
+source_file="res://assets/ui/menu/assets/crosshair_1.png"
+dest_files=["res://.godot/imported/crosshair_1.png-8a94cf9e936fd32623ad2fa0ebd585ff.ctex"]
 
 [params]
 
