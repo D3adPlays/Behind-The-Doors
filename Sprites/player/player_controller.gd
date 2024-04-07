@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 @onready var axis = Vector2.ZERO
 
+
 @onready var box_name = $"../DialogueZone/CanvasLayer/NinePatchRect/Name"
 @onready var box_chat = $"../DialogueZone/CanvasLayer/NinePatchRect/Chat"
 @onready var diag_box = $"../DialogueZone/CanvasLayer/NinePatchRect"
@@ -61,7 +62,8 @@ func apply_movement():
 	elif velocity.x > 0 && lastdir == 1:
 		animated_sprite.scale.x *= -1;
 		lastdir = 0;
-	
+
+
 func move():
 	axis = get_input_axis();
 	apply_movement();

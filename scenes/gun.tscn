@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://gsdg4kd3empk"]
+
+[ext_resource type="Script" path="res://scenes/gun.gd" id="1_u16am"]
+[ext_resource type="Texture2D" uid="uid://1y4t55awhrr7" path="res://assets/sprites/weapons/gun.png" id="2_yr112"]
+
+[node name="main" type="Node2D"]
+
+[node name="gun" type="Node2D" parent="."]
+script = ExtResource("1_u16am")
+
+[node name="gun_sprite" type="Sprite2D" parent="gun"]
+position = Vector2(3, -2)
+rotation = -1.5708
+scale = Vector2(0.138793, 0.139957)
+texture = ExtResource("2_yr112")
+
+[node name="Marker2D" type="Marker2D" parent="gun/gun_sprite"]
+position = Vector2(79.2547, 7.14534)
+rotation = 1.5708
+scale = Vector2(7.14505, 7.20497)
+
+[node name="Timer" type="Timer" parent="gun"]
+autostart = true
+
+[connection signal="timeout" from="gun/Timer" to="gun" method="_on_timer_timeout"]

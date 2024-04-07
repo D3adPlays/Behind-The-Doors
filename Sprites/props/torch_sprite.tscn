@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://cbtciqm8h5uoa"]
 
-[ext_resource type="Script" path="res://sprites/props/torch_sprite.gd" id="1_32tyh"]
+[ext_resource type="Script" path="res://Sprites/props/torch_sprite.gd" id="1_32tyh"]
 [ext_resource type="Texture2D" uid="uid://6ta44ygcq0ws" path="res://assets/sprites/props/torch_spritesheet.png" id="1_fl4sl"]
 [ext_resource type="Texture2D" uid="uid://cr0m5skxrxst4" path="res://assets/tiles/2d_lights_and_shadows_neutral_point_light.png" id="2_ej4bl"]
 
