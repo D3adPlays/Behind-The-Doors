@@ -615,8 +615,8 @@ offset_top = 127.0
 offset_right = 1151.88
 offset_bottom = 317.0
 
-[node name="Player" parent="NPC" instance=ExtResource("4_2wkxd")]
-position = Vector2(3962.48, 2521.23)
-scale = Vector2(3.56306, 3.56306)
+[node name="Player" parent="." instance=ExtResource("4_2wkxd")]
+position = Vector2(823, 486)
+scale = Vector2(0.701489, 0.701489)
 
 [editable path="NPC"]

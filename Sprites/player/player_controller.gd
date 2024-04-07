@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-@export var MAX_SPEED = 800;
-@export var ACCELERATION = 300;
+@export var ACCELERATION = 400;
 @export var FRICTION = 1200;
 
 @onready var axis = Vector2.ZERO
@@ -9,7 +8,8 @@ extends CharacterBody2D
 @onready var box_name = $"../DialogueZone/CanvasLayer/NinePatchRect/Name"
 @onready var box_chat = $"../DialogueZone/CanvasLayer/NinePatchRect/Chat"
 @onready var diag_box = $"../DialogueZone/CanvasLayer/NinePatchRect"
-	
+@onready var animated_sprite = %AnimatedSprite
+
 var dialogue = [
 	["Mage", "Bonjour aventurier"],
 	["Mage", "Si tu es ici,"],
@@ -18,6 +18,7 @@ var dialogue = [
 	["Mage", "..."]];
 var not_first = false;
 var text_box = false;
+var lastdir: int = 0;
 	
 func get_input_axis():
 	axis.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
@@ -50,6 +51,16 @@ func apply_friction():
 func apply_movement():
 	velocity.x += axis.x * ACCELERATION;
 	velocity.y += axis.y * ACCELERATION;
+	if (velocity.x != 0 || velocity.y != 0):
+		animated_sprite.play("walking");
+	else:
+		animated_sprite.play("default");
+	if velocity.x < 0 && lastdir == 0:
+		animated_sprite.scale.x *= -1
+		lastdir = 1;
+	elif velocity.x > 0 && lastdir == 1:
+		animated_sprite.scale.x *= -1;
+		lastdir = 0;
 	
 func move():
 	axis = get_input_axis();
@@ -59,35 +70,3 @@ func move():
 	
 func _physics_process(delta):
 	move()
-	change_dialogue()
-
-func find_in_dialogue(str):
-	for i in range(dialogue.size()):
-		var index = dialogue[i].find(box_chat.text);
-		if (index != -1):
-			return i;
-	return -1;
-
-func change_dialogue():
-	if (Input.is_action_just_pressed("left_click") and text_box):
-		var index = find_in_dialogue(box_chat.text);
-		if (index != -1):
-			if (index + 1 < dialogue.size()):
-				box_name.text = dialogue[index + 1][0];
-				box_chat.text = dialogue[index + 1][1];
-			else:
-				box_name.text = dialogue[0][0];
-				box_chat.text = dialogue[0][1];
-
-func _on_area_2d_body_entered(body):
-	if (not_first):
-		diag_box.show()
-		box_name.text = dialogue[0][0];
-		box_chat.text = dialogue[0][1];
-		text_box = true;
-	else:
-		not_first = true;
-
-func _on_area_2d_body_exited(body):
-	diag_box.hide();
-	text_box = false;
