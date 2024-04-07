@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://u1fbwphw351b"]
+
+[ext_resource type="Texture2D" uid="uid://b4eypunmwmmlx" path="res://assets/sprites/enemies/slime/slime_idle_anim_f1.png" id="1_f1jmj"]
+[ext_resource type="Script" path="res://sprites/enemies/enemy.gd" id="2_sfucy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5k5be"]
+radius = 10.0499
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g5eo2"]
+radius = 128.035
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(12, 4.25)
+scale = Vector2(1.5, 1.34375)
+texture = ExtResource("1_f1jmj")
+script = ExtResource("2_sfucy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(13, 6)
+shape = SubResource("CircleShape2D_5k5be")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+position = Vector2(13, 6)
+shape = SubResource("CircleShape2D_g5eo2")

@@ -1,0 +1,131 @@
+[gd_scene load_steps=18 format=3 uid="uid://cbtciqm8h5uoa"]
+
+[ext_resource type="Script" path="res://sprites/props/torch_sprite.gd" id="1_32tyh"]
+[ext_resource type="Texture2D" uid="uid://6ta44ygcq0ws" path="res://assets/sprites/props/torch_spritesheet.png" id="1_fl4sl"]
+[ext_resource type="Texture2D" uid="uid://cr0m5skxrxst4" path="res://assets/tiles/2d_lights_and_shadows_neutral_point_light.png" id="2_ej4bl"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rln37"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dr2de"]
+height = 1
+seamless = true
+noise = SubResource("FastNoiseLite_rln37")
+
+[sub_resource type="Gradient" id="Gradient_blqia"]
+offsets = PackedFloat32Array(0, 0.251064, 0.544681, 0.646809, 1)
+colors = PackedColorArray(1, 1, 0.32549, 1, 1, 0.67451, 0.156863, 1, 1, 1, 1, 1, 0.281187, 0.281187, 0.281187, 1, 0, 0, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tspy"]
+atlas = ExtResource("1_fl4sl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh6pj"]
+atlas = ExtResource("1_fl4sl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stspy"]
+atlas = ExtResource("1_fl4sl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el8d6"]
+atlas = ExtResource("1_fl4sl")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqm3t"]
+atlas = ExtResource("1_fl4sl")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi5h3"]
+atlas = ExtResource("1_fl4sl")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epwv7"]
+atlas = ExtResource("1_fl4sl")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqsc1"]
+atlas = ExtResource("1_fl4sl")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jugrd"]
+atlas = ExtResource("1_fl4sl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4j2kt"]
+atlas = ExtResource("1_fl4sl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yqsdk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tspy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wh6pj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stspy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el8d6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqm3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi5h3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epwv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqsc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jugrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4j2kt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Torch Sprite" type="Node2D"]
+scale = Vector2(8, 8)
+script = ExtResource("1_32tyh")
+noise_texture = SubResource("NoiseTexture2D_dr2de")
+
+[node name="Glow" type="PointLight2D" parent="."]
+scale = Vector2(0.0877909, 0.0877909)
+color = Color(0.647059, 0.360784, 0, 1)
+shadow_enabled = true
+texture = ExtResource("2_ej4bl")
+texture_scale = 2.3
+
+[node name="smoke" type="CPUParticles2D" parent="."]
+position = Vector2(0.125, 0)
+amount = 7
+lifetime = 2.0
+explosiveness = 0.06
+local_coords = true
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+spread = 27.13
+gravity = Vector2(0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 7.09
+orbit_velocity_min = -0.1
+orbit_velocity_max = 0.1
+angle_min = -40.8
+scale_amount_min = 0.0
+scale_amount_max = 1.2
+color_ramp = SubResource("Gradient_blqia")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yqsdk")
+frame_progress = 0.00537999
+speed_scale = 1.57
