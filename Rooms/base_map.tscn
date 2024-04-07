@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://7y8njls5xcl"]
+[gd_scene load_steps=20 format=3 uid="uid://7y8njls5xcl"]
 
 [ext_resource type="Texture2D" uid="uid://1yc24tb5lnb2" path="res://assets/tiles/Tilemap/colored_tilemap.png" id="1_mmkvl"]
 [ext_resource type="PackedScene" uid="uid://cbtciqm8h5uoa" path="res://Sprites/torch_sprite.tscn" id="2_q6h3w"]
+[ext_resource type="PackedScene" uid="uid://bp4yx0d3gf4ys" path="res://dialogues/npc_base.tscn" id="3_ngkth"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i7qkb"]
 polygon = PackedVector2Array(-4, 4, -2, 4, -2, -1, -1, -1, -1, -2, 4, -2, 4, -4, -3, -4, -3, -3, -4, -3)
@@ -594,3 +595,20 @@ scale = Vector2(0.430135, 0.430135)
 
 [node name="Lighting" type="CanvasModulate" parent="."]
 color = Color(0.262745, 0.262745, 0.262745, 1)
+
+[node name="NPC" parent="." instance=ExtResource("3_ngkth")]
+position = Vector2(42.875, -10.375)
+scale = Vector2(0.196878, 0.196878)
+npc_name = "Aventurier"
+dialogues = Array[String](["Hey jeune aventurier!", "Bite !"])
+
+[node name="Trigger_Box" parent="NPC/DialogueBox" index="0"]
+position = Vector2(3515.5, 1180.3)
+
+[node name="Diag Box" parent="NPC/DialogueBox/CanvasLayer" index="0"]
+offset_left = 837.0
+offset_top = 127.0
+offset_right = 1151.88
+offset_bottom = 317.0
+
+[editable path="NPC"]

@@ -5,6 +5,10 @@ extends CharacterBody2D
 @export var FRICTION = 1200;
 
 @onready var axis = Vector2.ZERO
+
+@onready var box_name = $"../DialogueZone/CanvasLayer/NinePatchRect/Name"
+@onready var box_chat = $"../DialogueZone/CanvasLayer/NinePatchRect/Chat"
+@onready var diag_box = $"../DialogueZone/CanvasLayer/NinePatchRect"
 	
 var dialogue = [
 	["Mage", "Bonjour aventurier"],
@@ -59,33 +63,31 @@ func _physics_process(delta):
 
 func find_in_dialogue(str):
 	for i in range(dialogue.size()):
-		var index = dialogue[i].find($"../CanvasLayer/NinePatchRect/Chat".text);
+		var index = dialogue[i].find(box_chat.text);
 		if (index != -1):
 			return i;
 	return -1;
 
 func change_dialogue():
 	if (Input.is_action_just_pressed("left_click") and text_box):
-		var index = find_in_dialogue($"../CanvasLayer/NinePatchRect/Chat".text);
+		var index = find_in_dialogue(box_chat.text);
 		if (index != -1):
 			if (index + 1 < dialogue.size()):
-				$"../CanvasLayer/NinePatchRect/Name".text = dialogue[index + 1][0];
-				$"../CanvasLayer/NinePatchRect/Chat".text = dialogue[index + 1][1];
+				box_name.text = dialogue[index + 1][0];
+				box_chat.text = dialogue[index + 1][1];
 			else:
-				$"../CanvasLayer/NinePatchRect/Name".text = dialogue[0][0];
-				$"../CanvasLayer/NinePatchRect/Chat".text = dialogue[0][1];
-
+				box_name.text = dialogue[0][0];
+				box_chat.text = dialogue[0][1];
 
 func _on_area_2d_body_entered(body):
 	if (not_first):
-		$"../CanvasLayer/NinePatchRect".show()
-		$"../CanvasLayer/NinePatchRect/Name".text = dialogue[0][0];
-		$"../CanvasLayer/NinePatchRect/Chat".text = dialogue[0][1];
+		diag_box.show()
+		box_name.text = dialogue[0][0];
+		box_chat.text = dialogue[0][1];
 		text_box = true;
 	else:
 		not_first = true;
 
-
 func _on_area_2d_body_exited(body):
-	$"../CanvasLayer/NinePatchRect".hide();
+	diag_box.hide();
 	text_box = false;

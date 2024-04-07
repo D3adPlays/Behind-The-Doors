@@ -4,14 +4,12 @@ extends Node2D
 @onready var glow: PointLight2D = $Glow;
 var noise: Noise;
 var last_time: float = 0.0;
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	pass # Replace with function body.
+	animated_sprite_2d.play("default");
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
 	last_time += delta;
 	noise = noise_texture.noise

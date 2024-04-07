@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://8w4slmisap4l"]
+
+[ext_resource type="FontFile" uid="uid://du8uvjcg7oduo" path="res://nokiafc22.ttf" id="1_jbdoh"]
+
+[resource]
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+RichTextLabel/fonts/normal_font = ExtResource("1_jbdoh")
+VBoxContainer/constants/separation = 10

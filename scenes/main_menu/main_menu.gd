@@ -19,7 +19,6 @@ func _on_quitter_pressed() -> void:
 	get_tree().quit(0);
 	pass # Replace with function body.
 
-
 func _on_options_pressed() -> void:
 	print("Opening options...");
 	pass # Replace with function body.
