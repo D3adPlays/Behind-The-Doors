@@ -1,22 +1,83 @@
-[gd_scene load_steps=4 format=3 uid="uid://6u81vywuc5cl"]
+[gd_scene load_steps=12 format=3 uid="uid://6u81vywuc5cl"]
 
 [ext_resource type="Script" path="res://sprites/player/player_controller.gd" id="1_4ivt5"]
-[ext_resource type="Texture2D" uid="uid://cnom6y1uquusb" path="res://assets/sprites/props/key_silver.png" id="2_sop38"]
+[ext_resource type="Texture2D" uid="uid://ba8bkyvpb3f2n" path="res://assets/sprites/player/knight_idle_spritesheet.png" id="2_pq5mt"]
+[ext_resource type="Texture2D" uid="uid://cr0m5skxrxst4" path="res://assets/tiles/2d_lights_and_shadows_neutral_point_light.png" id="3_0g5sy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwch4"]
+atlas = ExtResource("2_pq5mt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tpm1"]
+atlas = ExtResource("2_pq5mt")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihgme"]
+atlas = ExtResource("2_pq5mt")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dbaq"]
+atlas = ExtResource("2_pq5mt")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg5cy"]
+atlas = ExtResource("2_pq5mt")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6mur"]
+atlas = ExtResource("2_pq5mt")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fg6sw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwch4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tpm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihgme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dbaq")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_xg5cy")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_a6mur")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqtkb"]
-size = Vector2(16.25, 9.375)
+size = Vector2(12.9393, 5.45031)
 
 [node name="Player" type="Node2D"]
 
 [node name="player" type="CharacterBody2D" parent="."]
+scale = Vector2(8, 8)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_4ivt5")
 
-[node name="Sprite2D" type="Sprite2D" parent="player"]
-position = Vector2(-0.125, 0.25)
-texture = ExtResource("2_sop38")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
+sprite_frames = SubResource("SpriteFrames_fg6sw")
+frame_progress = 0.0491236
+speed_scale = 0.7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-position = Vector2(0.875, 0.875)
+position = Vector2(-0.263469, 3.75843)
+scale = Vector2(0.979064, 1.01221)
 shape = SubResource("RectangleShape2D_xqtkb")
+
+[node name="PointLight2D" type="PointLight2D" parent="player"]
+position = Vector2(-2.98023e-08, 2.38419e-07)
+scale = Vector2(0.125, 0.125)
+energy = 0.52
+texture = ExtResource("3_0g5sy")
+texture_scale = 2.54

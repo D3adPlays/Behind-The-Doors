@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://7y8njls5xcl"]
+[gd_scene load_steps=21 format=3 uid="uid://7y8njls5xcl"]
 
 [ext_resource type="Texture2D" uid="uid://1yc24tb5lnb2" path="res://assets/tiles/Tilemap/colored_tilemap.png" id="1_mmkvl"]
 [ext_resource type="PackedScene" uid="uid://cbtciqm8h5uoa" path="res://sprites/props/torch_sprite.tscn" id="2_q6h3w"]
 [ext_resource type="PackedScene" uid="uid://bp4yx0d3gf4ys" path="res://sprites/npc/npc_base.tscn" id="3_ngkth"]
+[ext_resource type="PackedScene" uid="uid://6u81vywuc5cl" path="res://sprites/player/player.tscn" id="4_2wkxd"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i7qkb"]
 polygon = PackedVector2Array(-4, 4, -2, 4, -2, -1, -1, -1, -1, -2, 4, -2, 4, -4, -3, -4, -3, -3, -4, -3)
@@ -610,5 +611,9 @@ offset_left = 837.0
 offset_top = 127.0
 offset_right = 1151.88
 offset_bottom = 317.0
+
+[node name="Player" parent="." instance=ExtResource("4_2wkxd")]
+position = Vector2(823, 486)
+scale = Vector2(0.701489, 0.701489)
 
 [editable path="NPC"]
